@@ -5,8 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-permissions:
-  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,18 +27,8 @@ jobs:
           echo "Install deps..."
           npm ci
 
-      - name: Build proj  
-        run: |
-          echo "Next project build..."
-          npm run build
-        
-      - name: Lint checks
-        run: |
-          echo "Check linting..."
-          npm run lint
-      
-      - name: Create .nojekyll file
-        run: touch ./out/.nojekyll
+      - name: Build App!!!
+        run: npm run build && npm run export && touch ./out/.nojekyll
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
