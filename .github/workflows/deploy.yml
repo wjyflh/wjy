@@ -25,17 +25,19 @@ jobs:
           cache: 'npm'
 
       - name: Installing
-      - run: |
-        echo "Install deps..."
-        npm ci
+        run: |
+          echo "Install deps..."
+          npm ci
 
       - name: Build proj  
-        echo "Next project build..."
-        npm run build
+        run: |
+          echo "Next project build..."
+          npm run build
         
       - name: Lint checks
-        echo "Check linting..."
-        npm lint
+        run: |
+          echo "Check linting..."
+          npm lint
         
       - name: Deploy 🚀
           uses: JamesIves/github-pages-deploy-action@v4
