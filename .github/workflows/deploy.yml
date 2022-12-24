@@ -38,9 +38,12 @@ jobs:
         run: |
           echo "Check linting..."
           npm run lint
+      
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: out
           branch: gh-pages

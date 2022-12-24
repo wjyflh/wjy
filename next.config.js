@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'build',
   reactStrictMode: true,
+  basePath: "/nextjs-pages",
+  assetPrefix: "/nextjs-pages",
 }
 
 module.exports = nextConfig
