@@ -1,11 +1,9 @@
+const isProduction = process.env.BUILD_ENV === "production";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
-  assetPrefix: '/wjy/',
+  assetPrefix: isProduction ? '/wjy/' : undefined,
 }
 
 module.exports = nextConfig
