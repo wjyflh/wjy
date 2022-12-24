@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Slogan>
           <Intro>
-            <span className="name">WJY</span>
+            <span className="name">WJY :Ｐ</span>
             <span>- A good boy.</span>
             <span>- A Frontend guy. </span>
             <span>- Love music & guitar.</span>
