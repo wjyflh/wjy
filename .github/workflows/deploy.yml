@@ -24,10 +24,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Installinng depandencies...
+      - name: Installing
       - run: |
+        echo "Install deps..."
         npm ci
+
+      - name: Build proj  
+        echo "Next project build..."
         npm run build
+        
+      - name: Lint checks
+        echo "Check linting..."
         npm lint
         
       - name: Deploy 🚀
