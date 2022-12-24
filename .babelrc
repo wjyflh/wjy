@@ -1,0 +1,38 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false,
+        "minify": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@apis": "./apis",
+          "@assets": "./assets",
+          "@components": "./components",
+          "@config": "./config",
+          "@contexts": "./contexts",
+          "@data": "./data",
+          "@hoc": "./hoc",
+          "@hook": "./hook",
+          "@images": "./images",
+          "@redux": "./redux",
+          "@reactContexts": "./reactContexts",
+          "@saga": "./saga",
+          "@stories": "./stories",
+          "@styles": "./styles",
+          "@types": "./types",
+          "@utils": "./utils"
+        }
+      }
+    ]
+  ]
+}
