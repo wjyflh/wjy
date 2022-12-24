@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Build & Deploy 🤓
 
 on:
   push:
@@ -9,8 +9,8 @@ permissions:
   contents: write
 jobs:
   build:
-    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
@@ -43,3 +43,4 @@ jobs:
           uses: JamesIves/github-pages-deploy-action@v4
           with:
             folder: build
+            branch: gh-pages
