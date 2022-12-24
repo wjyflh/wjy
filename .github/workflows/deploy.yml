@@ -37,7 +37,7 @@ jobs:
       - name: Lint checks
         run: |
           echo "Check linting..."
-          npm lint
+          npm run lint
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
