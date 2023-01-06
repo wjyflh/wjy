@@ -2,7 +2,7 @@ import { NextComponentType } from "next";
 import { ImageProps } from "next/image";
 import styled from "styled-components";
 import { TypeElement } from "typescript";
-import { IProps } from "@types/component";
+import { IProps } from "@interfaces/component";
 import { ReactNode } from "react";
 
 export default function Button ({ children, ...props }: IProps) {

@@ -8,14 +8,17 @@ export default function YouTubePlayer() {
   const [ player, setPlayer ] = useState<YT.Player>();
 
   function handlePlay(): void {
+    if(!player) return;
     playVideo(player);
   }
 
   function handleStop(): void {
+    if(!player) return;
     stopVideo(player);
   }
 
   function handleRandom(): void {
+    if(!player) return;
     randomSelectVideo(player);
   }
 

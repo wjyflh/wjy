@@ -1,4 +1,4 @@
-import { IVideo } from "../../types/component";
+import { IVideo } from "../../interfaces/component";
 
 let targetPlayer: YT.Player;
 let videos: IVideo[] = [
@@ -34,7 +34,7 @@ function createYoutubeEmbed(id: string) {
   }
 }
 
-function randomGetVideoId (): IVideo[] {
+function randomGetVideoId (): IVideo {
   return videos[Math.floor(Math.random() * 4)];
 }
 
@@ -67,30 +67,9 @@ function stopVideo (player: YT.Player) {
 }
 
 function randomSelectVideo (player: YT.Player) {
-  let videoId = randomGetVideoId();
-  player.loadVideoById(videoId);
+  let video: IVideo = randomGetVideoId();
+  player.loadVideoById(video.id);
 }
-// function onPlayerReady(event: YT.PlayerEvent) {
-//   const targetPlayer: YT.Player = event.target;
-  
-  // playBtn.addEventListener('click', function() {
-  //   video.mute().playVideo();
-  //   timeoutId = setTimeout(() => {
-  //     video.unMute()
-  //   }, 0);
-  // });
-  
-  // stopBtn.addEventListener('click',function() {
-  //   video.stopVideo();
-  //   timeoutId = null;
-  // });
-
-  // switchBtn.addEventListener('click',function() {
-  //   let videoId = randomGetVideoId();
-  //   video.loadVideoById(videoId);
-  // });
-// }
-
 
 export {
   createYoutubeEmbed,
