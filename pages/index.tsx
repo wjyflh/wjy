@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 import GUMBALL_IMG from '@images/home/gumball.jpeg';
+import YouTubePlayer from '../app/components/modules/common/youtube/youtubePlayer';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
             <span>- Like coding.</span>
           </Intro>
         </Slogan>
+        <YouTubePlayer />
       </main>
     </>
   )
