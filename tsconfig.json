@@ -13,7 +13,26 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@apis/*": ["./app/components/apis/*"],
+      "@hoc/*": ["./app/components/hoc/*"],
+      "@libs/*": ["./app/components/libs/*"],
+      "@elements/*": ["./app/components/elements/*"],
+      "@modules/*": ["./app/components/modules/*"],
+      "@templates/*": ["./app/components/templates/*"],
+      "@layouts/*": ["./app/components/layouts/*"],
+      "@config/*": ["./app/config/*"],
+      "@contexts/*": ["./app/contexts/*"],
+      "@constants/*": ["./app/constants/*"],
+      "@hook/*": ["./app/hooks/*"],
+      "@images/*": ["./app/images/*"],
+      "@redux/*": ["./app/redux/*"],
+      "@saga/*": ["./app/saga/*"],
+      "@styles/*": ["./app/styles/*"],
+      "@interfaces/*": ["./app/interfaces/*"],
+      "@utils/*": ["./app/utils/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

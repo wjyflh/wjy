@@ -30,7 +30,7 @@
           "@redux": "./app/redux",
           "@saga": "./app/saga",
           "@styles": "./app/styles",
-          "@types": "./app/types",
+          "@interfaces": "./app/interfaces",
           "@utils": "./app/utils"
         }
       }
