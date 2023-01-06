@@ -15,22 +15,23 @@
       {
         "root": ["./"],
         "alias": {
-          "@apis": "./apis",
-          "@assets": "./assets",
-          "@components": "./components",
-          "@config": "./config",
-          "@contexts": "./contexts",
-          "@data": "./data",
-          "@hoc": "./hoc",
-          "@hook": "./hook",
-          "@images": "./images",
-          "@redux": "./redux",
-          "@reactContexts": "./reactContexts",
-          "@saga": "./saga",
-          "@stories": "./stories",
-          "@styles": "./styles",
-          "@types": "./types",
-          "@utils": "./utils"
+          "@apis": "./app/components/apis",
+          "@hoc": "./app/components/hoc",
+          "@libs": "./app/components/libs",
+          "@elements": "./app/components/elements",
+          "@modules": "./app/components/modules",
+          "@templates": "./app/components/templates",
+          "@layouts": "./app/components/layouts",
+          "@config": "./app/config",
+          "@contexts": "./app/contexts",
+          "@constants": "./app/constants",
+          "@hook": "./app/hooks",
+          "@images": "./app/images",
+          "@redux": "./app/redux",
+          "@saga": "./app/saga",
+          "@styles": "./app/styles",
+          "@types": "./app/types",
+          "@utils": "./app/utils"
         }
       }
     ]
