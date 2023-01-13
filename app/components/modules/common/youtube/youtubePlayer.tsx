@@ -26,6 +26,7 @@ export default function YouTubePlayer() {
   function handleRandom(): void {
     if(!player) return;
     randomSelectVideo(player);
+    setIsPaused(false);
   }
 
   useEffect(() => {
