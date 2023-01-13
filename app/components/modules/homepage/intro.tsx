@@ -1,7 +1,4 @@
-import { YtEmbedContext } from "@contexts/YTembedContext";
-import MarqueeText from "@elements/marquee/marqueeText";
 import YouTubePlayer from "@modules/common/youtube/youtubePlayer";
-import { useContext } from "react";
 import styled from "styled-components";
 
 export default function Intro() {

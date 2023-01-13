@@ -6,7 +6,6 @@ import YouTubePlayer from '../app/components/modules/common/youtube/youtubePlaye
 import MainLayout from '@layouts/main';
 import Identify from '@elements/identify/identify';
 import Copyright from '@elements/copyright/copyright';
-import YtEmbedContextProvider from '@contexts/YTembedContext';
 import Intro from '@modules/homepage/intro';
 
 export default function Home() {
@@ -28,9 +27,7 @@ export default function Home() {
           <HoverEffect>
             <Identify/>
           </HoverEffect>
-          <YtEmbedContextProvider>
-            <Intro />
-          </YtEmbedContextProvider>
+          <Intro />
         </Slogan>
         <Copyright />
       </main>
