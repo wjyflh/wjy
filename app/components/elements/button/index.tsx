@@ -15,7 +15,7 @@ export default function Button ({ children, ...props }: IProps) {
 
 const StyledButton = styled.button`
   background: transparent;
-  padding: 8px;
+  padding: 4px 8px;
   display: flex;
   transition-duration: 0.3s;
   cursor: pointer;

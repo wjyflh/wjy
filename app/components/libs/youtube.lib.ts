@@ -60,6 +60,8 @@ function playVideo (player: YT.Player) {
     let timeoutId = setTimeout(() => {
       player.unMute()
     }, 0);
+
+    return player;
 }
 
 function stopVideo (player: YT.Player) {
@@ -69,6 +71,7 @@ function stopVideo (player: YT.Player) {
 function randomSelectVideo (player: YT.Player) {
   let video: IVideo = randomGetVideoId();
   player.loadVideoById(video.id);
+  return video;
 }
 
 export {

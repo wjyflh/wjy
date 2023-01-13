@@ -6,6 +6,8 @@ import YouTubePlayer from '../app/components/modules/common/youtube/youtubePlaye
 import MainLayout from '@layouts/main';
 import Identify from '@elements/identify/identify';
 import Copyright from '@elements/copyright/copyright';
+import YtEmbedContextProvider from '@contexts/YTembedContext';
+import Intro from '@modules/homepage/intro';
 
 export default function Home() {
   return (
@@ -13,8 +15,11 @@ export default function Home() {
       <Head>
         <title>WJY | Jiang</title>
         <meta property="og:title" content="WJY | Jiang" />
-        <meta property="og:image" content="/wjy_logo.jpg" />
+        <meta property="og:site_name" content="WJY | Jiang" />
+        <meta property="og:url" content="https://www.wjy.rocks/" />
         <meta property="og:description" content="I'm Jiang. A senior frontend guy, with music in mind." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/wjy_logo.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -23,19 +28,9 @@ export default function Home() {
           <HoverEffect>
             <Identify/>
           </HoverEffect>
-          <Intro>
-            <div className="name">
-              <span>{`I'm `}</span>
-              <h1>Jiang.</h1>
-            </div>
-            <UnderLineDeco>- A Frontend guy. </UnderLineDeco>
-            <UnderLineDeco>
-              - A music lover.
-              <YouTubePlayer />
-            </UnderLineDeco>
-            <UnderLineDeco>- A guitar lover.</UnderLineDeco>
-            <UnderLineDeco>- Like coding.</UnderLineDeco>
-          </Intro>
+          <YtEmbedContextProvider>
+            <Intro />
+          </YtEmbedContextProvider>
         </Slogan>
         <Copyright />
       </main>
@@ -62,45 +57,5 @@ const HoverEffect = styled.div`
   &:hover {
     transition-duration: 0.3s;
     transform: rotate(-10deg);
-  }
-`;
-
-const Intro = styled.div`
-  display: grid;
-  gap: 8px;
-
-  .name {
-    font-size: 2rem;
-    font-weight: bold;
-    white-space: nowrap;
-
-    h1 {
-      display: inline-block;
-    }
-  }
-`;
-
-const UnderLineDeco = styled.span`
-  position: relative;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  cursor: default;
-
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    width: 0%;
-    height: 1px;
-    background: #333;
-    transition-duration: 0.3s;
-  }
-
-  &:hover {
-    &:before {
-      width: 100%;
-      transition-duration: 0.3s;
-    }  
   }
 `;

@@ -7,15 +7,15 @@ const Identify = () => {
     <Link href="/">
       <IdentifyStyle>
         <div className="floater">
-          <h2 className="author-lastname">
+          <div className="author-lastname">
             <span className="zh">W</span>
-          </h2>
-          <h3 className="author-firstname">
+          </div>
+          <div className="author-firstname">
             <span className="zh">J</span>
-          </h3>
-          <h3 className="author-firstname second">
+          </div>
+          <div className="author-firstname second">
             <span className="zh">Y</span>
-          </h3>
+          </div>
         </div>
       </IdentifyStyle>
     </Link>

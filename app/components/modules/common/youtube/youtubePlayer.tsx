@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import Button from '@elements/button';
 import styled, { keyframes } from "styled-components";
 import { createYoutubeEmbed, loadVideo, playVideo, stopVideo, randomSelectVideo } from "@libs/youtube.lib";
@@ -6,14 +6,23 @@ import { MdAudiotrack, MdPauseCircle } from "react-icons/md";
 import { TbArrowsRandom } from "react-icons/tb";
 import CdGif from "@images/icons/cd.gif";
 import Image from "next/image";
+import { IVideo } from "@interfaces/component";
+import { YtEmbedContext } from "@contexts/YTembedContext";
+
 
 export default function YouTubePlayer() {
   const [ player, setPlayer ] = useState<YT.Player>();
   const [ isPaused, setIsPaused ] = useState(true);
+  const { setCurrentVideo } = useContext(YtEmbedContext);
 
   function handlePlay(): void {
     if(!player) return;
-    playVideo(player);
+    const playerInfo: any = playVideo(player);
+    const videoInfo: any = {
+      id: playerInfo.getVideoData().video_id,
+      name: playerInfo.getVideoData().title,
+    };
+    setCurrentVideo(videoInfo);
     setIsPaused(false);
   }
 
@@ -25,7 +34,7 @@ export default function YouTubePlayer() {
 
   function handleRandom(): void {
     if(!player) return;
-    randomSelectVideo(player);
+    setCurrentVideo(randomSelectVideo(player));
     setIsPaused(false);
   }
 
