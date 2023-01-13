@@ -8,5 +8,5 @@ export interface IVideos extends Array<IVideo>{}
 
 export interface IProps {
   children: ReactNode;
-  onClick: () => void
+  onClick?: () => void
 }

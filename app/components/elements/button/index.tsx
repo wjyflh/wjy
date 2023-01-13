@@ -14,13 +14,22 @@ export default function Button ({ children, ...props }: IProps) {
 }
 
 const StyledButton = styled.button`
-  backgroud: #ddd;
-  padding: 4px 8px;
-  border-radius: 4px;
+  background: transparent;
+  padding: 8px;
+  display: flex;
   transition-duration: 0.3s;
   cursor: pointer;
-  :active {
-    background: #ccc;
+
+  :active, :hover {
     transition-duration: 0.3s;
+
+    svg {
+      transform: rotate(10deg);
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;

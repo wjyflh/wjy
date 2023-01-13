@@ -1,20 +1,26 @@
 import { ReactNode, useEffect, useState } from "react";
 import Button from '@elements/button';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { createYoutubeEmbed, loadVideo, playVideo, stopVideo, randomSelectVideo } from "@libs/youtube.lib";
-
+import { MdAudiotrack, MdPauseCircle } from "react-icons/md";
+import { TbArrowsRandom } from "react-icons/tb";
+import CdGif from "@images/icons/cd.gif";
+import Image from "next/image";
 
 export default function YouTubePlayer() {
   const [ player, setPlayer ] = useState<YT.Player>();
+  const [ isPaused, setIsPaused ] = useState(true);
 
   function handlePlay(): void {
     if(!player) return;
     playVideo(player);
+    setIsPaused(false);
   }
 
   function handleStop(): void {
     if(!player) return;
     stopVideo(player);
+    setIsPaused(true);
   }
 
   function handleRandom(): void {
@@ -37,19 +43,40 @@ export default function YouTubePlayer() {
   return (
     <Wrapper>
       <YTPlayer id="player"/>
-      <Button onClick={handlePlay}>Play</Button>
-      <Button onClick={handleStop}>Stop</Button>
-      <Button onClick={handleRandom}>Random</Button>
+      <Button onClick={() => {
+        return isPaused ? handlePlay() : handleStop();
+      }}>
+        {
+          isPaused
+            ? <MdAudiotrack /> 
+            : <StyledeImage width={20} src={CdGif} alt="CD playing gif" />
+        }
+      </Button>
+      <Button onClick={handleRandom}>
+        <TbArrowsRandom />
+      </Button>
     </Wrapper>
   );
 }
 
+const rotateForever = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
 const Wrapper = styled.div`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  margin-left: 20px;
   display: flex;
-  gap: 8px;
+  border: 1px solid #000;
 `
 
 const YTPlayer = styled.div``;
+
+const StyledeImage = styled(Image)`
+  animation: ${rotateForever} 5s linear infinite;
+`;
