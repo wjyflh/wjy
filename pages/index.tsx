@@ -1,10 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styled from 'styled-components';
-
-import YouTubePlayer from '../app/components/modules/common/youtube/youtubePlayer';
 import MainLayout from '@layouts/main';
-import Identify from '@elements/identify/identify';
 import Copyright from '@elements/copyright/copyright';
 import Intro from '@modules/homepage/intro';
 
@@ -38,9 +34,6 @@ export default function Home() {
       </Head>
       <main>
         <Slogan>
-          <HoverEffect>
-            <Identify/>
-          </HoverEffect>
           <Intro />
         </Slogan>
         <Copyright />
@@ -56,17 +49,4 @@ const Slogan = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
-
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
-    gap: 20px;
-  }
-`;
-
-const HoverEffect = styled.div`
-  transition-duration: 0.3s;
-  &:hover {
-    transition-duration: 0.3s;
-    transform: rotate(-10deg);
-  }
 `;

@@ -1,24 +1,30 @@
 import Link from "next/link"
 import React from "react"
-import styled, { keyframes } from "styled-components"
+import styled, { ThemeProvider, keyframes } from "styled-components"
 
-const Identify = () => {
+const Identify = ({
+  size = 100,
+}) => {
   return (
-    <Link href="/">
-      <IdentifyStyle>
-        <div className="floater">
-          <div className="author-lastname">
-            <span className="zh">W</span>
+    <ThemeProvider theme={{
+      size,
+    }}>
+      <Link href="/">
+        <IdentifyStyle>
+          <div className="floater">
+            <div className="author-lastname">
+              <span className="zh">W</span>
+            </div>
+            <div className="author-firstname">
+              <span className="zh">J</span>
+            </div>
+            <div className="author-firstname second">
+              <span className="zh">Y</span>
+            </div>
           </div>
-          <div className="author-firstname">
-            <span className="zh">J</span>
-          </div>
-          <div className="author-firstname second">
-            <span className="zh">Y</span>
-          </div>
-        </div>
-      </IdentifyStyle>
-    </Link>
+        </IdentifyStyle>
+      </Link>
+    </ThemeProvider>
   )
 }
 
@@ -53,26 +59,25 @@ const cornerMove = keyframes`
   }
 `
 
-const IdentifyStyle = styled.div`
-  border-radius: 10px 10px 0px 10px;
+const IdentifyStyle = styled.div<{ theme: { size: number } }>`
+  border-radius: ${({ theme }) => theme.size ? `${theme.size / 10}px ${theme.size / 10}px 0px ${theme.size / 10}px` : ""};
   position: relative;
-  width: 100px;
-  height: 100px;
-  font-size: 14px;
+  width: ${({ theme }) => theme.size ? `${theme.size}px` : ""};
+  height: ${({ theme }) => theme.size ? `${theme.size}px` : ""};
+  font-size: ${({ theme }) => theme.size ? `${theme.size * 0.14}px` : ""};
   font-weight: 700;
   z-index: 1;
-  background: #000;
+  background: #000; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 10px;
-  border-radius: 0px 0px 10px 0px;
+  padding: ${({ theme }) => theme.size / 10 ? `${theme.size / 10}px` : ""};;
+  border-radius: ${({ theme }) => theme.size ? `0px 0px ${theme.size / 10}px 0px` : ""};
   cursor: pointer;
   transform-origin: center;
   perspective-origin: center center;
   perspective: 500px;
-  transition-duration: 3s;
 
   &.roll-enter {
     opacity: 1;
@@ -106,26 +111,26 @@ const IdentifyStyle = styled.div`
 
   .floater {
     transform-style: preserve-3d;
-    animation: ${identifyFlip} 2s forwards ease-out;
+    animation: ${identifyFlip} 20s forwards linear infinite;
   }
 
   &:before {
     content: "";
     position: absolute;
     float: right;
-    left: 65px;
-    top: 65px;
-    width: 30px;
-    height: 30px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    border-radius: 0px 0px 10px 0px;
+    left: ${({ theme }) => theme.size  ? `${theme.size * 0.65}px` : ""};
+    top: ${({ theme }) => theme.size ? `${theme.size * 0.65}px` : ""};
+    width: ${({ theme }) => theme.size ? `${theme.size * 0.3}px` : ""};
+    height: ${({ theme }) => theme.size ? `${theme.size * 0.3}px` : ""};
+    border-right: ${({ theme }) => theme.size ? `${theme.size * 0.02}px solid #fff` : ""};
+    border-bottom: ${({ theme }) => theme.size ? `${theme.size * 0.02}px solid #fff` : ""};
+    border-radius: ${({ theme }) => theme.size  ? `0px 0px ${theme.size / 10}px 0px` : ""};
     animation: ${cornerMove} 2s forwards ease-out;
   }
 
   .author-lastname,
   .author-firstname {
-    width: 80px;
+    width: ${({ theme }) => theme.size * 0.8  ? `${theme.size * 0.8}px` : ""};
   }
 
   .author-firstname {
@@ -137,12 +142,12 @@ const IdentifyStyle = styled.div`
 
   .zh {
     display: inline-block;
-    font-size: 20px;
-    line-height: 26px;
-    width: 26px;
-    height: 26px;
+    font-size: ${({ theme }) => theme.size  ? `${theme.size * 0.2}px` : ""};
+    line-height: ${({ theme }) => theme.size / 4 ? `${theme.size / 4}px` : ""};
+    width: ${({ theme }) => theme.size / 4 ? `${theme.size / 4}px` : ""};
+    height: ${({ theme }) => theme.size / 4 ? `${theme.size / 4}px` : ""};
     color: #fff;
-    border: 1px solid #fff;
+    border: ${({ theme }) => theme.size  ? `${theme.size / 100}px solid #fff;` : ""}
     text-align: center;
 
     &:nth-child(2) {
